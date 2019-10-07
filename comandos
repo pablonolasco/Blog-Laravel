@@ -1,0 +1,14 @@
+--crea un modelo, migracion, factoria y controlador
+php artisan make:model Forum -mfc
+--migrar tablas
+php artisan migrate
+-- se abre consola de php, para ejecutar las factorys, sales con exit
+php artisan tinker
+
+-- ejecuta factoria y crea 50 registros
+ factory(App\Forum::class, 50)->create(();
+-- vueleve a generar las migraciones borrando los datos y generando nuevos con base al seed
+php artisan migrate:fresh --seed
+
+-- genera archivos para login
+php artisan make:auth
