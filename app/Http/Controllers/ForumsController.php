@@ -6,7 +6,7 @@ use App\Forum;
 
 use App\Posts;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class ForumsController extends Controller
 {
     public function index(){
@@ -18,7 +18,7 @@ class ForumsController extends Controller
 
     public function show(Forum $forums)
     {
-       $posts=$forums->posts()->with(['owner'])->paginate(2);
-       dd($posts);
+      //  $foro=Forum::findOrFail($forums);
+       dd($forums);
     }
 }

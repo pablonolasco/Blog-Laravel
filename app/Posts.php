@@ -12,12 +12,13 @@ class Posts extends Model
     // TODO 1:1
     public function forum()
     {
-        return $this->belongsTo(Forum::class,'forum_id');
+        //return $this->belongsTo(Forum::class,'forum_id');
+        return $this->belongsTo(Forum::class);
     }
 
     // TODO 1:1
     public function owner()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
     }
 }
