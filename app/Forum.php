@@ -15,10 +15,11 @@ class Forum extends Model
         return $this->hasMany(Posts::class);
     }
 
-    //relacion a distanciam
+    //relacion a distancia
+
     protected function replies()
     {
-        //(clase mas lejos,clase enlace )
+        //(clase a distancoa,clase enlace)
         return $this->hasManyThrough(Reply::class,Posts::class);
     }
 }

@@ -18,7 +18,8 @@ class CreateRepliesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('post_id');
             $table->foreign('post_id')->references('id')->on('posts');
-            $table->unsignedInteger('user_id')->references('id')->on('users');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->text('reply');
             $table->timestamps();
         });
