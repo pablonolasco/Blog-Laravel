@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Forum;
 
-use App\Posts;
+use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class ForumsController extends Controller

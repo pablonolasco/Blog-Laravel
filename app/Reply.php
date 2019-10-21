@@ -12,10 +12,10 @@ class Reply extends Model
 
     //crear atributos extras para acceder a otras tablas
     protected $appends=['forum'];
-    // 1 a
-    public function post()
+    // 1 a 1
+    public function posts()
     {
-        return $this->belongsTo(Posts::class);
+       return $this->belongsTo(Post::class,'post_id');
     }
     public function author()
     {
@@ -25,7 +25,7 @@ class Reply extends Model
     //metodo para obtener los foros, la nomenclatura para atributos extras es getCampoAttribute
     protected function getForumAttribute()
     {
-        return $this->post->forum;
+       return $this->post->forum;
     }
 
 }

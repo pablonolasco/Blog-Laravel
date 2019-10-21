@@ -12,14 +12,14 @@ class Forum extends Model
     // TODO 1:M
     public function posts()
     {
-        return $this->hasMany(Posts::class);
+        return $this->hasMany(Post::class);
     }
 
     //relacion a distancia
 
     protected function replies()
     {
-        //(clase a distancoa,clase enlace)
-        return $this->hasManyThrough(Reply::class,Posts::class);
+        //(clase mas lejos,clase enlace)
+        return $this->hasManyThrough(Reply::class,Post::class);
     }
 }
