@@ -16,9 +16,10 @@ class ForumsController extends Controller
 
     }
 
-    public function show(Forum $forums)
+    public function show($forums)
     {
-      //  $foro=Forum::findOrFail($forums);
-       dd($forums);
+       $foros=Forum::findOrFail($forums);
+       $posts=$foro->posts()->with(['owner'])->paginate(2);
+       dd($posts);
     }
 }
