@@ -14,4 +14,11 @@ class Forum extends Model
     {
         return $this->hasMany(Posts::class);
     }
+
+    //relacion a distanciam
+    protected function replies()
+    {
+        //(clase mas lejos,clase enlace )
+        return $this->hasManyThrough(Reply::class,Posts::class);
+    }
 }

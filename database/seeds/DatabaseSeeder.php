@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Forum;
 use App\Posts;
 use App\User;
+use App\Reply;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -17,6 +18,7 @@ class DatabaseSeeder extends Seeder
         //semillero cuando se ejecute el comando migrate se crearan en automatico los datos
         factory(User::class, 50)->create();
         factory(Forum::class, 20)->create();
-        factory(Posts::class, 100)->create();
+        factory(Posts::class, 50)->create();
+        factory(Reply::class, 100)->create();
     }
 }

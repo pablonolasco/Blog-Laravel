@@ -8,7 +8,10 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <a href="forums/{{$forum->id }}">{{$forum->name}}</a>
-                        <span class="pull-right">{{__('Posts')}}:{{$forum->posts->count()}}</span>
+                        <span class="pull-right">
+                            {{__('Posts')}}:{{$forum->posts->count()}}
+                            {{__('Respuestas')}}:{{$forum->replies->count()}}
+                        </span>
                     </div>
 
                     <div class="panel-body">
