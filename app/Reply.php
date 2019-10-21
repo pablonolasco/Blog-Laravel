@@ -25,7 +25,7 @@ class Reply extends Model
     //metodo para obtener los foros, la nomenclatura para atributos extras es getCampoAttribute
     protected function getForumAttribute()
     {
-       return $this->post->forum;
+       return $this->posts->forum;
     }
 
 }

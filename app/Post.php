@@ -21,4 +21,10 @@ class Post extends Model
     {
         return $this->belongsTo(User::class,'user_id');
     }
+
+    // 1:M tiene muchas respuestas
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
 }

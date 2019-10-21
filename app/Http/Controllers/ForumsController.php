@@ -12,7 +12,7 @@ class ForumsController extends Controller
     public function index(){
         //trae el ultimo al primero
         //$forums=Forum::latest()->paginate(5);
-        $forums=Forum::with(['posts'])->paginate(2);
+        $forums=Forum::with(['posts'])->paginate(10);
         return view('forums.index',compact('forums'));
 
     }

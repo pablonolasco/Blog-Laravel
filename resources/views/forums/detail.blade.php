@@ -7,7 +7,7 @@
             @forelse($posts as $post)
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a href="forums/{{$post->id }}">{{$post->title}}</a>
+                        <a href="{{route('post-detalle',$post->id)}}">{{$post->title}}</a>
                         {{--nombre de usuario--}}
                         <span class="pull-right">{{__('Owner')}}:{{$post->owner->name}}</span>
                     </div>
