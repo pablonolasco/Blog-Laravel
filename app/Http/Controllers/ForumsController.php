@@ -19,7 +19,7 @@ class ForumsController extends Controller
     public function show($forums)
     {
        $foros=Forum::findOrFail($forums);
-       $posts=$foro->posts()->with(['owner'])->paginate(2);
-       dd($posts);
+       $posts=$foros->posts()->with(['owner'])->paginate(2);
+       return view('forums.detail',compact('posts','foros'));
     }
 }

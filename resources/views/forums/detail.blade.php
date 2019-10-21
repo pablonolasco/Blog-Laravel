@@ -3,27 +3,27 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 
-          <h1 class="text-center text-muted">{{__("Foros")}}</h1>
-            @forelse($forums as $forum)
+            <h1 class="text-center text-muted">{{__("Owner")}}</h1>
+            @forelse($posts as $post)
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a href="forums/{{$forum->id }}">{{$forum->name}}</a>
-                        <span class="pull-right">{{__('Posts')}}:{{$forum->posts->count()}}</span>
+                        <a href="forums/{{$post->id }}">{{$post->title}}</a>
+                        {{--nombre de usuario--}}
+                        <span class="pull-right">{{__('Owner')}}:{{$post->owner->name}}</span>
                     </div>
 
                     <div class="panel-body">
-                        {{$forum->description}}
+                        {{$post->description}}
                     </div>
                 </div>
-                @empty
+            @empty
                 <div class="alert alert-danger">
                     {{__('No hay ningún foro en este momento')}}
                 </div>
             @endforelse
-            @if($forums->count())
-                {{$forums->links()}}
+            @if($posts->count())
+              {{ $posts->links() }}
             @endif
-
         </div>
     </div>
 @endsection
