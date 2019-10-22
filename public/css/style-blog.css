@@ -1,0 +1,29 @@
+.panel-default > .panel-heading-forum{
+    color: #fff;
+    background: #f4645f;
+    border-color: #ddd;
+}
+
+.panel-heading-forum a{
+    color: #fff;
+    text-decoration: underline;
+}
+.panel-default > .panel-heading-post{
+    color: #fff;
+    background: #1f648b;
+    border-color: #ddd;
+}
+.panel-default > .panel-heading-post a{
+    color: #fff;
+    text-decoration: underline;
+}
+
+.panel-default > .panel-heading-reply{
+    color: #fff;
+    background-color: #2f3133;
+}
+
+.panel-default > .panel-heading-reply a{
+    color: #fff;
+    text-decoration: underline;
+}

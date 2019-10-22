@@ -6,7 +6,7 @@
           <h1 class="text-center text-muted">{{__("Foros")}}</h1>
             @forelse($forums as $forum)
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading panel-heading-forum">
                         <a href="forums/{{$forum->id }}">{{$forum->name}}</a>
                         <span class="pull-right">
                             {{__('Post')}}:{{$forum->posts->count()}}

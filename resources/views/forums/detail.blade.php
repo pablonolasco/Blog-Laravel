@@ -3,10 +3,18 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 
-            <h1 class="text-center text-muted">{{__("Owner")}}</h1>
+            <h1 class="text-center text-muted">
+                {{__("Posts del foro :name",['name'=> $foros->name])}}
+            </h1>
+
+            <a href="/" class="btn btn-info pull-right">
+                {{ __('Volver al listado de foross')}}
+            </a>
+            <div class="clearfix"></div>
+            <br>
             @forelse($posts as $post)
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading panel-heading-post">
                         <a href="{{route('post-detalle',$post->id)}}">{{$post->title}}</a>
                         {{--nombre de usuario--}}
                         <span class="pull-right">{{__('Owner')}}:{{$post->owner->name}}</span>
