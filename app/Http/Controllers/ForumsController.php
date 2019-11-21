@@ -12,7 +12,10 @@ class ForumsController extends Controller
     public function index(){
         //trae el ultimo al primero
         //$forums=Forum::latest()->paginate(5);
-        $forums=Forum::with(['posts'])->paginate(10);
+        //relacion con posts
+        
+        $forums=Forum::with(['post'])->paginate(10);
+      dd($forums);
         return view('forums.index',compact('forums'));
 
     }
@@ -20,7 +23,7 @@ class ForumsController extends Controller
     public function show($forums)
     {
        $foros=Forum::findOrFail($forums);
-       $posts=$foros->posts()->with(['owner'])->paginate(2);
+       $posts=$foros->post()->with(['owner'])->paginate(2);
        return view('forums.detail',compact('posts','foros'));
     }
 }
