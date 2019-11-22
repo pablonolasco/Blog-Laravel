@@ -16,4 +16,8 @@ php artisan make:auth
 -- https://github.com/barryvdh/laravel-debugbar, sirve para colocar la barra de debug de laravel en el proyecto, v2.4
 composer require barryvdh/laravel-debugbar:~2.4
 
+//======== traducir mensajes de error
+ https://github.com/caouecs/Laravel-lang
+
+
 

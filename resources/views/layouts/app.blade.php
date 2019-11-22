@@ -72,6 +72,14 @@
             </div>
         </nav>
         <div class="container">
+            @if (session('message'))
+            <div class="alert alert-{{session('message')[0]}}" role="alert">
+                   {{session('message')[1]}}
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+             </div>
+            @endif
         @yield('content')
         </div>
     </div>

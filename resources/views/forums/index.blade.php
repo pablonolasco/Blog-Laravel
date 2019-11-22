@@ -26,7 +26,23 @@
             @if($forums->count())
                 {{$forums->links()}}
             @endif
+            <h2>{{__('Añadir un nuevo foro')}}</h2>
+          @include('partials.partial')
+            <form method="POST" action="{{route('save-post')}}">
 
+                {{csrf_field()}}
+                <div class="form-group">
+                <label for="name">{{__('Nombre')}}</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Nombre" value="{{old('name')}}">
+           
+                </div>
+               
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">{{__('Descripcion')}}</label>
+                <textarea class="form-control" id="descripcion" name="description" rows="3">{{old('description')}}</textarea>
+                </div>
+                <button type="submit" name="addForum" class="btn btn-default">{{__('Añadir foro')}}</button>
+              </form>
         </div>
     </div>
 @endsection

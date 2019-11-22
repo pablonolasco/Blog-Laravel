@@ -14,16 +14,35 @@ class ForumsController extends Controller
         //$forums=Forum::latest()->paginate(5);
         //relacion con posts
         
-        $forums=Forum::with(['post'])->paginate(10);
-      dd($forums);
+        $forums=Forum::with(['post'])->paginate(2);
+     
         return view('forums.index',compact('forums'));
 
     }
 
     public function show($forums)
     {
-       $foros=Forum::findOrFail($forums);
-       $posts=$foros->post()->with(['owner'])->paginate(2);
-       return view('forums.detail',compact('posts','foros'));
+        try{
+            $foros=Forum::findOrFail($forums);
+            $posts=$foros->post()->with(['owner'])->paginate(2);
+            return view('forums.detail',compact('posts','foros'));
+        }catch(Exception $e){
+            dd($e->getMessage());
+        }
+       
+    }
+
+    public function store(Request $request){
+        try{
+          
+           $this->validate($request,[
+            'name'=>'required|min:3'
+           ]);
+            Forum::create($request->all());
+            //========regresa a la pagina anterior con un mensaje
+            return back()->with('message',['success',__('Foro creado correctamente')]);
+        }catch(Exception $e){
+            dd($e->getMessage());
+        }
     }
 }
