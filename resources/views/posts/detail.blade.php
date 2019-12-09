@@ -31,6 +31,12 @@
             @if($replices->count())
                 {{ $replices->links() }}
             @endif
+            @Logged()
+            {{$foros->name}}
+            @include('partials.partial-errors')
+            @else
+            @include('partials.login_link',["message"=>__("Inicia sesion para crear responder")]);
+            @endLogged
         </div>
     </div>
 @endsection

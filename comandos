@@ -19,5 +19,5 @@ composer require barryvdh/laravel-debugbar:~2.4
 //======== traducir mensajes de error
  https://github.com/caouecs/Laravel-lang
 
-
-
+//=======================comando para ccrear un request y hacer las validaciones ahi
+php artisan make:request PostRequest

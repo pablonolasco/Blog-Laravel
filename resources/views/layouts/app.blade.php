@@ -7,7 +7,9 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
+  
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
@@ -71,7 +73,7 @@
                 </div>
             </div>
         </nav>
-        <div class="container">
+        <div class="container" style="padding:100px">
             @if (session('message'))
             <div class="alert alert-{{session('message')[0]}}" role="alert">
                    {{session('message')[1]}}
@@ -85,6 +87,8 @@
     </div>
 
     <!-- Scripts -->
+   
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/post.js') }}"></script>
 </body>
 </html>

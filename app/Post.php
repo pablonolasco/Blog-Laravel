@@ -9,6 +9,17 @@ class Post extends Model
     protected $table='posts';
     protected $fillable=['forum_id','user_id','title','description'];
 
+    // TODO metodo que se inicia cuando se esta creado un post y se obtiene el id del usuario
+    protected static function boot(){
+        parent::boot();
+        static::creating(function($post){
+            if(!App::runningInConsole){
+                // sino se esta ejecutando por linea de comando
+                 $post->user_id=auth()->id();
+            }
+
+        });
+    }
     // TODO 1:1
     public function forum()
     {

@@ -32,6 +32,26 @@
             @if($posts->count())
               {{ $posts->links() }}
             @endif
+           {{--verifica si esta logeado--}}
+            @Logged()
+            {{$foros->name}}
+            @include('partials.partial-errors')
+                <form method="POST" action="/posts/save">
+                {{ csrf_field() }}
+                <input type="hidden" name="forum_id" value="{{$foros->id}}">
+                <div class="form-group">
+                  <label for="title" class="col-md-12 control-label">{{__('Titulo')}}</label>
+                <input type="text" class="form-control" name="title" id="" aria-describedby="title" placeholder="Titulo" value="{{old('title')}}">
+                </div>
+                <div class="form-group">
+                    <label for="description" class="col-md-12 control-label">{{__('Descripcion')}}</label>
+                <textarea name="description" class="form-control" id="name">{{old('description')}}</textarea>
+                </div>
+                <button type="submit" name="addPost" id="addPosdt" class="btn btn-primary">{{__("Añadir Post")}}</button>
+                </form>
+            @else
+                @include('partials.login_link',["message"=>__("Inicia sesion para crear un post")]);
+            @endLogged()
         </div>
     </div>
 @endsection

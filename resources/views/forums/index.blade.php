@@ -27,7 +27,7 @@
                 {{$forums->links()}}
             @endif
             <h2>{{__('Añadir un nuevo foro')}}</h2>
-          @include('partials.partial')
+          @include('partials.partial-errors')
             <form method="POST" action="{{route('save-post')}}">
 
                 {{csrf_field()}}

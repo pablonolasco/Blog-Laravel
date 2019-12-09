@@ -36,7 +36,8 @@ class ForumsController extends Controller
         try{
           
            $this->validate($request,[
-            'name'=>'required|min:3'
+            'name'=>'required|min:3',
+            'description'=>'required|min:3'
            ]);
             Forum::create($request->all());
             //========regresa a la pagina anterior con un mensaje
