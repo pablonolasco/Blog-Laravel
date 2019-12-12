@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         //semillero cuando se ejecute el comando migrate se crearan en automatico los datos
+        factory(User::class)->create(['email'=>'pablo.nolasco@live.com']);
         factory(User::class, 50)->create();
         factory(Forum::class, 20)->create();
         factory(Post::class, 50)->create();

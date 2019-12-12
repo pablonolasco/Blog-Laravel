@@ -34,6 +34,16 @@
             @Logged()
             {{$foros->name}}
             @include('partials.partial-errors')
+            <form method="POST" action="/repuesta/save">
+                {{ csrf_field() }}
+                <input type="hidden" name="forum_id" value="{{$post->id}}">
+             
+                <div class="form-group">
+                    <label for="respuesta" class="col-md-12 control-label">{{__('respuesta')}}</label>
+                <textarea name="respuesta" class="form-control" id="name">{{old('respuesta')}}</textarea>
+                </div>
+                <button type="submit" name="addRes" id="addRes" class="btn btn-primary">{{__("Añadir Respuesta")}}</button>
+                </form>
             @else
             @include('partials.login_link',["message"=>__("Inicia sesion para crear responder")]);
             @endLogged
