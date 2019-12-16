@@ -7,7 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Forum extends Model
 {
     protected $table='forums';
-    protected $fillable=['name','description'];
+    protected $fillable=['name','description','slug'];
+  //=================== indicamos que utilza el slug como parametro
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     // TODO =============== 1:M
     public function post()

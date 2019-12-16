@@ -22,8 +22,15 @@ class CreatePostsTable extends Migration
             $table->foreign('forum_id')->references('id')->on('forums');
             $table->string('title');
             $table->text('description');
+            $table->string('slug');
+            $table->index('slug');
+            $table->string('attachment')->nullable();
             $table->timestamps();
         });
+        //=============actualiza la tabla
+     /*   Schema::table('posts', function (Blueprint $table) {
+            $table->string('slug');
+        });*/
     }
 
     /**

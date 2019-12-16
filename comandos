@@ -14,10 +14,18 @@ php artisan migrate:fresh --seed
 php artisan make:auth
 
 -- https://github.com/barryvdh/laravel-debugbar, sirve para colocar la barra de debug de laravel en el proyecto, v2.4
-composer require barryvdh/laravel-debugbar:~2.4
+-- https://github.com/barryvdh/laravel-debugbar/tree/2.4
+composer require barryvdh/laravel-debugbar:~2.4 --dev
+
 
 //======== traducir mensajes de error
  https://github.com/caouecs/Laravel-lang
 
 //=======================comando para ccrear un request y hacer las validaciones ahi
 php artisan make:request PostRequest
+
+//=======================comando para crear reglas de validacion hacer las validaciones ahi
+php artisan make:rule ValidReplay
+
+//=======================crear la respuesta y recuperar la imagen de storage http://image.intervention.io/
+composer require intervention/image

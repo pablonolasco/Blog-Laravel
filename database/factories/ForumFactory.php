@@ -4,9 +4,12 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Forum::class, function (Faker $faker) {
     //datos fictios
+    //====== sentencia para crear la url amigable
+    $name=$faker->sentence;
     return [
         //
-        'name'=>$faker->sentence,
-        'description'=>$faker->paragraph
+        'name'=>$name,
+        'description'=>$faker->paragraph,
+        'slug'=>str_slug($name,'-'),
     ];
 });

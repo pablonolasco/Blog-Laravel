@@ -24,6 +24,7 @@ class ForumsController extends Controller
     {
         try{
             $foros=Forum::findOrFail($forums);
+          
             $posts=$foros->post()->with(['owner'])->paginate(2);
             return view('forums.detail',compact('posts','foros'));
         }catch(Exception $e){

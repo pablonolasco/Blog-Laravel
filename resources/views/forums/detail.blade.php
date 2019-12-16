@@ -8,20 +8,24 @@
             </h1>
 
             <a href="/" class="btn btn-info pull-right">
-                {{ __('Volver al listado de foross')}}
+                {{ __('Volver al listado de foros')}}
             </a>
             <div class="clearfix"></div>
             <br>
             @forelse($posts as $post)
                 <div class="panel panel-default">
                     <div class="panel-heading panel-heading-post">
-                        <a href="{{route('post-detalle',$post->id)}}">{{$post->title}}</a>
+                        <a href="{{route('post-detalle',$post->slug)}}">{{$post->title}}</a>
                         {{--nombre de usuario--}}
                         <span class="pull-right">{{__('Owner')}}:{{$post->owner->name}}</span>
                     </div>
 
                     <div class="panel-body">
                         {{$post->description}}
+                        @if($post->attachment)
+                            <img src="{{url($post->pathAttachment())}}" class="img-responsive img-rounded img-thumbnail"/>
+                        @endif
+
                     </div>
                 </div>
             @empty

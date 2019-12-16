@@ -32,15 +32,15 @@
                 {{ $replices->links() }}
             @endif
             @Logged()
-            {{$foros->name}}
+            <h3>{{ __('Añadir una nueva respuesta al post :name', ['name'=>$post->name]) }}</h3>
             @include('partials.partial-errors')
-            <form method="POST" action="/repuesta/save">
+            <form method="POST" action="/respuesta/save">
                 {{ csrf_field() }}
-                <input type="hidden" name="forum_id" value="{{$post->id}}">
+                <input type="hidden" name="post_id" value="{{$post->id}}">
              
                 <div class="form-group">
-                    <label for="respuesta" class="col-md-12 control-label">{{__('respuesta')}}</label>
-                <textarea name="respuesta" class="form-control" id="name">{{old('respuesta')}}</textarea>
+                    <label for="reply" class="col-md-12 control-label">{{__('Respuesta')}}</label>
+                <textarea name="reply" class="form-control" id="name">{{old('reply')}}</textarea>
                 </div>
                 <button type="submit" name="addRes" id="addRes" class="btn btn-primary">{{__("Añadir Respuesta")}}</button>
                 </form>

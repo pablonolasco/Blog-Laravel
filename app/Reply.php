@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 
 class Reply extends Model
 {
@@ -12,6 +13,18 @@ class Reply extends Model
 
     //======crear atributos extras para acceder a otras tablas
     protected $appends=['forum'];
+
+     // TODO metodo que se inicia cuando se esta creado un post y se obtiene el id del usuario
+     protected static function boot(){
+        parent::boot();
+        static::creating(function($reply){
+            if(!App::runningInConsole()){
+                // sino se esta ejecutando por linea de comando
+                 $reply->user_id=auth()->id();// ===== obtiene el id del usuario autenticado
+            }
+
+        });
+    }
     //======relacion 1 a 1, respuesta pertenece a un post
     public function post()
     {
